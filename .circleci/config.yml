@@ -3,7 +3,7 @@
 version: 2.1
 orbs:
   dart-tester-orb: emem365/dart-tester-orb@1.2.0
-
+  flutter: circleci/flutter@1.0.0
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -16,6 +16,8 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - flutter/install_ios_pod
+      - flutter/install_ios_gem
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
